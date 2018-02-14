@@ -11,5 +11,11 @@ class SubmissionTest < ActionDispatch::IntegrationTest
     }, as: :json
     assert_response :created
     assert true
+
+    submission = Submission.last
+    assert submission.data.present?
+    assert_equal submission.data[:name], 'Submit'
+    assert_equal submission.data[:colour], 'green'
+    assert_equal Submission.count, 1
   end
 end

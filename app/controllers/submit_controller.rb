@@ -16,6 +16,6 @@ class SubmitController < ApplicationController
   private
 
   def submission_params
-    params.fetch(:service, {})
+    params.permit(:form_id, data: {})
   end
 end
